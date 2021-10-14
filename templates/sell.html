@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell item
+{% endblock %}
+
+{% block main %}
+
+    <script>
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        if(urlParams.get('item') != null) {
+            window.addEventListener('DOMContentLoaded', function(event){
+                let item = urlParams.get('item');
+                console.log(item);
+                console.log(queryString);
+                console.log(urlParams.get('item'));
+                let select = document.getElementById('item');
+                select.value = item;
+            });
+        }
+    </script>
+
+    <h3 class="title">Post a Sale</h3>
+
+    <form method="POST">
+        <select type="select" name="item" id="item">
+            <option disabled selected>Item</option>
+            {% for item in inventory %}
+                <option id="{{ item.id }}" value="{{ item.id }}" >{{ item.type | upper }} {{ item.capacity | upper }}</option>
+            {% endfor %}
+        </select>
+        <input type="text" name="buyer" id="buyer" placeholder="Buyer">
+        <input type="text" name="platform" placeholder="Platform">
+        <input type="number" name="price" step="0.01" placeholder="Total Price">
+        <input type="number" name="quantity" placeholder="Quantity">
+        <button type="submit">Sell</button>
+    </form>
+
+{% endblock %}

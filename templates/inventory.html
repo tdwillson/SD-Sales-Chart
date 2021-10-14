@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Inventory
+{% endblock %}
+
+{% block main %}
+
+    {% for item in inventory %}
+    
+    <div class="item">
+        <h3>{{ item.id }}. {{ item.type | upper }}; {{ item.capacity | upper }}</h3>
+        <ul>
+            <li>Price: {{ item.price}}</li>
+            <li>Amount: {{ item.amount }}</li>
+            <li class="listing">Listings:</li>
+            {% for listing in item.listings %}
+                <li class="listing"><a href="{{ listing.link }}">{{ listing.platform }}</a></li>
+            {% endfor %}
+        </ul>
+        <!-- <button name="{{ item.id }}" class="order" onclick="postsell(this.id)">Place Order</button> -->
+        <form action="/sell" method="GET"><button type="submit" id="item" name="item" value="{{ item.id }}">Place Order</button></form>
+        <img src="{{ item.image }}" class="itempic">
+    </div>
+
+    {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,168 @@
+:root {
+    --accent: #da5353;
+    --accenthover: #963838;
+    --light: rgb(196, 221, 243);
+    --transition: all 0.3s ease 0s;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.topbar 
+{
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--accent);
+    font-weight: bold;
+}
+
+.topbar h1
+{
+    padding: 5px;
+}
+
+.topbar a
+{
+    border-radius: 5px;
+    padding: 5px;
+    font-size: larger;
+    text-decoration: none;
+    color: black;
+    transition: var(--transition);
+}
+
+.topbar a:hover
+{
+    background-color: var(--accenthover);
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.topbar li
+{
+    display: inline;
+    list-style: none;
+}
+
+img
+{
+    max-width: 100%;
+    height: auto;
+}
+
+.item
+{
+    float: left;
+    padding: 5px;
+    width: 100%;
+    transition: var(--transition);
+    display: block;
+    border-radius: 5px;
+}
+
+.item:hover
+{
+    background-color: var(--light);
+}
+
+@media only screen and (min-width: 550px){
+    .item{width: 50%}
+}
+
+@media only screen and (min-width: 850px){
+    .item{width: 33.3%}
+    .opt{visibility: visible;}
+}
+
+@media only screen and (min-width: 1200px){
+    .item{width: 25%;}
+}
+
+.item::after
+{
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.item li{
+    list-style: none;
+}
+
+input
+{
+    width: 700px;
+    max-width: 95%;
+    padding: 12px 20px;
+    margin: 15px;
+    transition: var(--transition);
+    display: block;
+}
+
+input:focus
+{
+    border: 3px solid black;
+}
+
+select
+{
+    width: 700px;
+    max-width: 95%;
+    padding: 12px 20px;
+    margin: 15px;
+    font-weight: bold;
+}
+
+.title
+{
+    padding-top: 15px;
+    padding-left: 15px;
+}
+
+button
+{
+    width: 200px;
+    max-width: 95%;
+    padding: 10px;
+    margin: 15px;
+}
+
+table
+{
+    width: 100%;
+    border-collapse: collapse;
+    font-weight: bold;
+}
+
+th
+{
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+tr
+{
+    transition: var(--transition);
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+tr:hover
+{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: var(--light);
+}
+
+.listing
+{
+    display: inline;
+}

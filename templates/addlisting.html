@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Listing
+{% endblock %}
+
+{% block main %}
+    <h3 class="title">Add new listing</h3>
+    <form method="POST">
+        <select name="item">
+            <optgroup label="Item">
+                {% for item in inventory %}
+                    <option value="{{ item.id }}">{{ item.type | upper }} {{ item.capacity | upper }}</option>
+                {% endfor %}
+            </optgroup>
+        </select>
+        <input name="platform" type="text" placeholder="Platform" autofocus>
+        <input name="link" type="link" placeholder="Link" autocomplete="url">
+        <button type="submit">Add</button>
+    </form>
+{% endblock %}

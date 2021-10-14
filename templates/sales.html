@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sales
+{% endblock %}
+
+{% block main %}
+
+    <h3 class="title">Sales</h3>
+    <div style="overflow-x:auto">
+        <table>
+            <thead>
+                <tr>
+                    <th class="opt">ID</th>
+                    <th>Item</th>
+                    <th>Buyer</th>
+                    <th>Platform</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Timestamp</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for sale in sales %}
+                    <tr>
+                        <th class="opt">{{ sale.id }}</th>
+                        <th>{{ sale.type | upper }} {{ sale.capacity | upper }}</th>
+                        <th>{{ sale.buyer }}</th>
+                        <th>{{ sale.platform }}</th>
+                        <th>{{ sale.price }}</th>
+                        <th>{{ sale.quantity }}</th>
+                        <th>{{ sale.timestamp }}</th>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}
